@@ -1,17 +1,21 @@
 <?php
 
-echo "Bem-vindo(a) ao screen match!
-";
+echo "Bem-vindo(a) ao screen match! \n";
 
 $nomeFilme = "Top Gun - Maverick";
-$nomeFilme = "Se beber não case";
-$nomeFilme = "Thor: Ragnarok";
 
-$anoLancamento = $argv[1] ?? 1991;
+$anoLancamento = 2022;
 
-$somaDeNotas = 9 + 6 + 8 + 7.5 + 5;
-$notaFilme = $somaDeNotas / 5;
+$quantidadeDeNotas = $argc - 1;
+$somaDeNotas = 0;
+
+for ($contador = 1; $contador < $argc; $contador++){
+    $somaDeNotas += $argv[$contador];
+}
+
+$notaFilme = $somaDeNotas / $quantidadeDeNotas;
 $planoPrime = true;
+
 $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
 
 echo "Nome do filme: " . $nomeFilme . "\n";
@@ -37,3 +41,5 @@ $genero = match ($nomeFilme) {
 };
 
 echo "O genero do filme é: $genero \n";
+
+echo $argc . "\n";
