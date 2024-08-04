@@ -48,3 +48,6 @@ $genero = match ($nomeFilme) {
 echo "O genero do filme é: $genero \n";
 
 echo $argc . "\n";
+
+
+var_dump($argv);
