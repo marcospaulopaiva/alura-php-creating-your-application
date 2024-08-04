@@ -49,5 +49,14 @@ echo "O genero do filme é: $genero \n";
 
 echo $argc . "\n";
 
-
 var_dump($argv);
+
+$filme = [
+    "nome" => "007",
+    "ano" => 2021,
+    "nota" => 7.2,
+    "genero" => "Ação"
+];
+
+echo "Nome filme: "  . $filme["nome"] . "\n";
+echo "Nome genero: " . $filme["genero"] . "\n";
