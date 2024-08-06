@@ -16,7 +16,7 @@ $entrada = (int) fgets(STDIN);
             exibirMenu();
             break;
         case 2:
-            sacarValor();
+            sacarValor($saldo);
             exibirMenu();
             break;
         case 3:
@@ -25,10 +25,9 @@ $entrada = (int) fgets(STDIN);
             break;
         case 4:
             sair();
-            break;
-        
+            break;        
         default:
-            echo "Opção não disponível!";
+            opcaoNaoDisponivel();
             break;
     }
 
@@ -51,16 +50,29 @@ function consultaSaldo($titular, $saldo){
     echo "*************** \n";
 }
 
-function sacarValor(){
-    echo "Sacar valor \n";
+function sacarValor($saldo){
+    echo "Qual valor deseja sacar? \n";
+    $valorASacar = (float) fgets(STDIN);
+    if($valorASacar > $saldo){
+        echo "Valor insuficiente! \n";
+    } else {
+        $saldo -= $valorASacar;
+    }
+
 }
 
 function depositarValor(){
-    echo "Depositar valor \n";
+    echo "Quanto deseja depositar? \n";
+    $valorADepositar = (float) fgets(STDIN);
+    $saldo += $valorADepositar;
+
 }
 
 function sair(){
     echo "Sair \n";
 }
 
+function opcaoNaoDisponivel(){
+    echo "Opção não disponível!";
+}
 
